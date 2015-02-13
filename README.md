@@ -6,18 +6,26 @@ public class reverseNums {
 
 	public static void reverseDisplay(int n) {
 		// change the int value to a string
+
 		String number = Integer.toString(n);
+
 		// if the string length equals the counter, then the method is finished
-		if (number.length() == i) {
+		if (i == number.length()) {
 			System.out.println(number);
 		} else {
-			// keep switching the string at the array of 0 to the end of the
-			// string until i is equal to the string length
-			String x = number.substring(1) + number.charAt(0);
+			// if i is 0 then switch the last index to the front. Other wise
+			// insert the last number in the list right before the number that
+			// was added previously
+			if (i == 0)
+				number = number.substring(number.length() - 1)
+						+ number.substring(i, number.length() - 1);
+			else
+				number = number.substring(0, i)
+						+ number.charAt(number.length() - 1)
+						+ number.substring(i, number.length() - 1);
 
 			i++;
-
-			reverseDisplay(Integer.parseInt(x));
+			reverseDisplay(Integer.parseInt(number));
 		}
 	}
 
@@ -26,3 +34,4 @@ public class reverseNums {
 	}
 
 }
+
